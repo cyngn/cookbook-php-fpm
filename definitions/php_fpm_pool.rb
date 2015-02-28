@@ -51,6 +51,8 @@ define :php_fpm_pool, :template => "pool.conf.erb", :enable => true do
         :access_log => params[:access_log] || false,
         :php_options => params[:php_options] || {},
         :request_terminate_timeout => params[:request_terminate_timeout],
+        :status_path => params[:status_path] || false,
+        :ping_path => params[:ping_path] || false,
         :params => params
       )
       notifies :restart, "service[php-fpm]"
